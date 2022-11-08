@@ -11,8 +11,8 @@ import pandas as pd
 
 
 DATA_LOCATION = "sqlite://whatdoilistento.sqlite"
-USER_ID = "1154451207"
-TOKEN = "BQCEeGudyJdWOvrE1c95NB5PTOZ0uQeppMmL"
+USER_ID = "Dorian"
+TOKEN = "TOKEN"
 
 if __name__ == "__main__":
 
