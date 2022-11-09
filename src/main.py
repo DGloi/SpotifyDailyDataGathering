@@ -12,7 +12,7 @@ import pandas as pd
 
 DATA_LOCATION = "sqlite://whatdoilistento.sqlite"
 USER_ID = "1154451207"
-TOKEN = "BQCjoa_OKXEaMSAOcmxQ-ZdWKTz8GbuaunlTw4LpSdzUxOO8kUmQMCLLMViuGRcuJxG30W4JzDGE1zWdM1xcN4ZCHQKj7ms-PcmWa-bobg8wrL7RCQ6M-lbCwy_ePDn-wwJswPT7EQmNUwRrLK_L8-NElvz9kaZS4RiW9FG1hKtHpdicK4Oc"
+TOKEN = "BQCURXK-9JH345F08B007rSSTCsjTjsvtVSKd1zYCx8iAJH8RRC-ZlYR1IsEw97TsKtlFUjX9ueo91qbVrXYf4Xm_I5mVPeX_aKpK8IfnqXO0_BOB0sboeeNh8QiDGBPMgrffiagxpAgSB9NN8AJlvKar0HnpTKobpIdY0YFM9lBThaQh7Kt"
 
 if __name__ == "__main__":
 
@@ -45,13 +45,16 @@ if __name__ == "__main__":
 
 for song in data["items"]:
     song_names.append(song["track"]["name"])
-    artist_names.append(song["track"]["album"]["artists"][0]["name"])
-    played_at_list.append(song["played_at"])
-    release_dates.append(song["release_date"])
-    timestamps.append(song["played_at"][0:10])
+    artist_names.append(song ["track"]["album"]["artists"][0]["name"])
+    played_at_list.append(song ["played_at"])
+    release_dates.append(song["track"]["album"]["release_date"]) 
+    albums_list.append(song["track"]["album"])
+    timestamps.append(song["played_at"][0:10]) 
 
 data_dict = {
     "song_name" : song_names,
+    "album" : albums_list,
+    "released_date" : release_dates,
     "artist_" : artist_names,
     "played at" : played_at_list,
     "timestamp" : timestamps
