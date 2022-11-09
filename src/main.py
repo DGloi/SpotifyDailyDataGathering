@@ -12,7 +12,7 @@ import pandas as pd
 
 DATA_LOCATION = "sqlite://whatdoilistento.sqlite"
 USER_ID = "1154451207"
-TOKEN = "BQCJCosalqWWa5keHMbuvIAeP0bcRsHfDnZ2yz0liuCdb3RBeJCV5Fb4R_X-bmKnIhbrwl9734ezqrVJhMKDsBGMQSRxJvxdqczXi-kCrBQnz5CcgGEDB4REN2lwL_MM4yXQwav25lbo9FGM_pj7sEL2Hgq2lAkYUhN3Qolzn-afXXnhjj-R"
+TOKEN = "BQCjoa_OKXEaMSAOcmxQ-ZdWKTz8GbuaunlTw4LpSdzUxOO8kUmQMCLLMViuGRcuJxG30W4JzDGE1zWdM1xcN4ZCHQKj7ms-PcmWa-bobg8wrL7RCQ6M-lbCwy_ePDn-wwJswPT7EQmNUwRrLK_L8-NElvz9kaZS4RiW9FG1hKtHpdicK4Oc"
 
 if __name__ == "__main__":
 
@@ -32,15 +32,29 @@ if __name__ == "__main__":
             time=unix_yesterday),headers=headers)
     
     data = r.json()
-    print(data)
+    #f = open('/Users/doriangloinec/Documents/GitHub/SpotifyDailyDataGathering/src/data.json')
+    #with open("data.json", 'w') as f:
+        #json.dump(data, f)
 
     song_names = []  #darude-sandstrom
     artist_names = []
     played_at_list = []
     release_dates= []
     albums_list= []
-    timetamp= []
+    timestamps= []
 
-    for song in data:
-        song_names.append
+for song in data["items"]:
+    song_names.append(song["track"]["name"])
+    artist_names.append(song["track"]["album"]["artists"][0]["name"])
+    played_at_list.append(song["played_at"])
+    release_dates.append(song["release_date"])
+    timestamps.append(song["played_at"][0:10])
 
+data_dict = {
+    "song_name" : song_names,
+    "artist_" : artist_names,
+    "played at" : played_at_list,
+    "timestamp" : timestamps
+}
+
+print(data_dict)
