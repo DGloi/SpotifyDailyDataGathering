@@ -1,4 +1,3 @@
-
 #Importing needed libraries
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import sessionmaker
@@ -12,8 +11,7 @@ import pandas as pd
 
 DATA_LOCATION = "sqlite://whatdoilistento.sqlite"
 USER_ID = "1154451207"
-TOKEN = "BQCURXK-9JH345F08B007rSSTCsjTjsvtVSKd1zYCx8iAJH8RRC-ZlYR1IsEw97TsKtlFUjX9ueo91qbVrXYf4Xm_I5mVPeX_aKpK8IfnqXO0_BOB0sboeeNh8QiDGBPMgrffiagxpAgSB9NN8AJlvKar0HnpTKobpIdY0YFM9lBThaQh7Kt"
-
+TOKEN = "BQBf2q4e_0UAbinbdgRJRMbqW78gBT7tL8SHfWNVCO3_A6zQ-y2fELeDyGYwR21MTjfhcSkslOAWXrW2tesFt85v5LdDCwdUgFS1zQOHsrmL7naSMW13OfqRmTwkOoEb54HMJX32NkzlecFPjK1PyI5j4hZd7xD-CSheW-n-U6_eUpxIwE6a"
 if __name__ == "__main__":
 
     headers = {
@@ -45,10 +43,10 @@ if __name__ == "__main__":
 
 for song in data["items"]:
     song_names.append(song["track"]["name"])
-    artist_names.append(song ["track"]["album"]["artists"][0]["name"])
-    played_at_list.append(song ["played_at"])
+    artist_names.append(song["track"]["artists"])
+    played_at_list.append(song["played_at"])
     release_dates.append(song["track"]["album"]["release_date"]) 
-    albums_list.append(song["track"]["album"])
+    albums_list.append(song["track"]["album"]["name"])
     timestamps.append(song["played_at"][0:10]) 
 
 data_dict = {
@@ -56,8 +54,12 @@ data_dict = {
     "album" : albums_list,
     "released_date" : release_dates,
     "artist_" : artist_names,
-    "played at" : played_at_list,
+    "played_at" : played_at_list,
     "timestamp" : timestamps
 }
 
-print(data_dict)
+data_df=pd.DataFrame(
+    data_dict,columns=["song_name","album","released_date","artist","played_at","timestamp"])
+
+print(data_df)
+data_df.to_csv("data.csv")
