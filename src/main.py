@@ -39,17 +39,21 @@ if __name__ == "__main__":
     song_names = [] 
     artist_names = []
     played_at_list = []
-    release_dates= []
-    albums_list= []
-    timestamps= []
+    release_dates = []
+    albums_list = []
+    day_played_list = []
+    hour_played_list = []
+    
 
 for song in data["items"]:
     song_names.append(song["track"]["name"])
     artist_names.append(song["track"]["artists"][0]["name"])
     played_at_list.append(song["played_at"])
+    hour_played_list.append()
     release_dates.append(song["track"]["album"]["release_date"]) 
     albums_list.append(song["track"]["album"]["name"])
-    timestamps.append(song["played_at"][0:10])
+    day_played_list.append(song["played_at"][0:10])
+    hour_played_list.append(song["played_at"][12:])
 
 data_dict = {
     "song_name" : song_names,
@@ -57,10 +61,14 @@ data_dict = {
     "released_date" : release_dates,
     "artist" : artist_names,
     "played_at" : played_at_list,
-    "timestamp" : timestamps
+    "day_played" : day_played_list,
+    "hour_played" : hour_played_list
 }
 
 data_df=pd.DataFrame(
-    data_dict,columns=["song_name","album","released_date","artist","played_at","timestamp"])
+    data_dict,columns=["song_name","album","released_date","artist","played_at","day_played","hour_played"])
+
+
+
 
 print(data_df)
