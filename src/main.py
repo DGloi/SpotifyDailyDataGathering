@@ -13,9 +13,8 @@ from utils.spotify_token_update import spotify_token
 
 
 DATA_LOCATION = "sqlite://whatdoilistento.sqlite"
-USER_ID = "1154451207"
-TOKEN = "BQCrZiDn_I-8vs1SaVYJPxvWzSC3thw4vkpUzUZoHrEREoYXQocZkE2rG1hwnSigsxA9viKcU4WH4oLNIcS_MtKJq9SSpNHBeJCYNlhJFJ5gsM997pb-Ak7-JJCICFV25zmBOW08mMD205xKuEKDn4NAsSS7v9-rksXImkmYfVukz6Gt8bH2"
-
+USER_ID = ""
+TOKEN = ""
 if __name__ == "__main__":
 
     headers = {
