@@ -13,10 +13,8 @@ def check_import(data_spotify : pd.dataframe) -> bool :
     else:
          raise Exception ("Not all records are unique records, primary key is violated.")
 
-    return
     # checks for null value
-
-    # ensure we only have records from yesterday
-
+    if data_spotify.isnull().value.any():
+        raise Exception ("Some data have missing value, workflow terminated. Please investigate JSON file")
 
     return True

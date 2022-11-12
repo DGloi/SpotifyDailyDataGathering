@@ -8,6 +8,9 @@ import datetime
 import sqlite3
 import pandas as pd
 
+from utils.check_valid_data import check_import
+from utils.spotify_token_update import spotify_token
+
 
 DATA_LOCATION = "sqlite://whatdoilistento.sqlite"
 USER_ID = "1154451207"
@@ -67,8 +70,5 @@ data_dict = {
 
 data_df=pd.DataFrame(
     data_dict,columns=["song_name","album","released_date","artist","played_at","day_played","hour_played"])
-
-
-
 
 print(data_df)
