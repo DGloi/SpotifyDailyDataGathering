@@ -12,9 +12,9 @@ from utils.check_valid_data import check_import
 from utils.spotify_token_update import spotify_token
 
 
-DATA_LOCATION = "sqlite://whatdoilistento.sqlite"
-USER_ID = ""
-TOKEN = ""
+DATA_LOCATION = "sqlite://what_do_i_listen_to.sqlite"
+USER_ID = "1154451207"
+TOKEN = "BQBlwa3D_m0s-pKKcnCV1e-GJDGLQbKeBiJXNcy8Oi5w7ePl5Q6eGIE3eLuiRvb5APSpYN5dsC6GnFu5QXUyvwIGMfMCO6Ky3OjoAcIiLaC5RT5PKoKnTApnNnyUaZELC_whCbjvT39gmvcU42ZIfjD-NtgD_rPgZdKHDjBVv-xpPQBB2Crk"
 if __name__ == "__main__":
 
     headers = {
@@ -47,27 +47,37 @@ if __name__ == "__main__":
     hour_played_list = []
     
 
-for song in data["items"]:
-    song_names.append(song["track"]["name"])
-    artist_names.append(song["track"]["artists"][0]["name"])
-    played_at_list.append(song["played_at"])
-    hour_played_list.append()
-    release_dates.append(song["track"]["album"]["release_date"]) 
-    albums_list.append(song["track"]["album"]["name"])
-    day_played_list.append(song["played_at"][0:10])
-    hour_played_list.append(song["played_at"][12:])
+    for song in data["items"]:
+        song_names.append(song["track"]["name"])
+        artist_names.append(song["track"]["artists"][0]["name"])
+        played_at_list.append(song["played_at"])
+        hour_played_list.append()
+        release_dates.append(song["track"]["album"]["release_date"]) 
+        albums_list.append(song["track"]["album"]["name"])
+        day_played_list.append(song["played_at"][0:10])
+        hour_played_list.append(song["played_at"][12:16])
 
-data_dict = {
-    "song_name" : song_names,
-    "album" : albums_list,
-    "released_date" : release_dates,
-    "artist" : artist_names,
-    "played_at" : played_at_list,
-    "day_played" : day_played_list,
-    "hour_played" : hour_played_list
-}
+    data_dict = {
+        "song_name" : song_names,
+        "album" : albums_list,
+        "released_date" : release_dates,
+        "artist" : artist_names,
+        "played_at" : played_at_list,
+        "day_played" : day_played_list,
+        "hour_played" : hour_played_list
+    }
 
-data_df=pd.DataFrame(
-    data_dict,columns=["song_name","album","released_date","artist","played_at","day_played","hour_played"])
+    data_df = pd.DataFrame(
+        data_dict,columns = ["song_name","album","released_date","artist","played_at","day_played","hour_played"])
 
-print(data_df)
+    #data quality check
+    if check_import(data_df):
+        print("Data from spotify passed the quality check, loading to database..")
+    
+    #Load
+    engine = SQLAlchemy.create_engine(DATA_LOCATION)
+    connection = sqlite3.connect("what_do_i_listen_to.sqlite")
+    cursor = connection.cursor()
+
+    sql_query = ""
+
