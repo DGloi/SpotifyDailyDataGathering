@@ -79,14 +79,14 @@ if __name__ == "__main__":
     cursor = connection.cursor()
 
     sql_query = """
-    CREATE TABLE IF NOT EXIST my_played_tracks(
+    CREATE TABLE IF NOT EXISTS my_played_tracks(
         song_name VARCHAR(200),
         album VARCHAR(200),
         released_date VARCHAR(200),
         artist VARCHAR(200),
         played_at VARCHAR(200),
         day_played VARCHAR(200),
-        hour_played VARCHAR(200)
+        hour_played VARCHAR(200),
         CONSTRAINT primary_key_constraint PRIMARY KEY (played_at)    
     )
     """
@@ -99,6 +99,6 @@ if __name__ == "__main__":
     except Exception as e:
         print("There was an issue loading the data. " + str(e))
     
-    connection.close(
-        print("database connection closed succcesfully")
-    )
+    connection.close()
+    print("database connection closed succcesfully")
+
