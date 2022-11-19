@@ -14,7 +14,7 @@ from utils.spotify_token_update import spotify_token
 
 DATA_LOCATION = "sqlite:///what_do_i_listen_to.sqlite"
 USER_ID = "1154451207"
-TOKEN = "BQCIQXcC7Qrq_Il-havwZ8yPWrfV5riLa4tcSDWblFUQr29tZO-EZs3TqhRwIcOYEuMpAJMe8qIhB1Jq42xlqyFOgcpopVJK8MfZD6BGmIAavUtOgEtXh9B3i9qTEQZwEvCwHnTA5W-aKYm-eaEKBk3Z9uuRym8J07IB5TolObHWcg3GJwJw"
+TOKEN = "BQA1fPYyeLJzEO2G9cQcfK9Q8nT0JUpqpcUnEZoVtChLMPIZDGgAxgutjzFFDSE8QWFWLtX4th6UQq5uQd8c4OxfnsR7eaJmA27eX--OP_6dICFS1M_QZceepdUix4GfcdgySacFgSOjq2uvLdVUeP9fRxu7k84d368idixQjWn7zSSyA5tA"
 if __name__ == "__main__":
 
     headers = {
@@ -95,7 +95,7 @@ if __name__ == "__main__":
     print("database opened successfully")
 
     try:
-        data_df.to_sql(" my_played_tracks",engine,index=False, if_exists="append")
+        data_df.to_sql("my_played_tracks",engine,index=False, if_exists="append")
     except Exception as e:
         print("There was an issue loading the data. " + str(e))
     
