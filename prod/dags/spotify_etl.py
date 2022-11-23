@@ -15,7 +15,8 @@ DATA_LOCATION = "sqlite:///what_do_i_listen_to.sqlite"
 USER_ID = "1154451207"
 TOKEN = "BQA1fPYyeLJzEO2G9cQcfK9Q8nT0JUpqpcUnEZoVtChLMPIZDGgAxgutjzFFDSE8QWFWLtX4th6UQq5uQd8c4OxfnsR7eaJmA27eX--OP_6dICFS1M_QZceepdUix4GfcdgySacFgSOjq2uvLdVUeP9fRxu7k84d368idixQjWn7zSSyA5tA"
 
-if __name__ == "__main__":
+
+def run_spotify_etl():
 
     headers = {
         "Accept":"application/json",
