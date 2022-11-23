@@ -11,9 +11,9 @@ import pandas as pd
 from utils.check_valid_data import check_import
 from utils.spotify_token_update import spotify_token
 
-DATA_LOCATION = "sqlite:///what_do_i_listen_to.sqlite"
+DATA_LOCATION = "sqlite:////Users/doriangloinec/Documents/GitHub/SpotifyDailyDataGathering/prod/data/what_do_i_listen_to.sqlite"
 USER_ID = "1154451207"
-TOKEN = "BQA1fPYyeLJzEO2G9cQcfK9Q8nT0JUpqpcUnEZoVtChLMPIZDGgAxgutjzFFDSE8QWFWLtX4th6UQq5uQd8c4OxfnsR7eaJmA27eX--OP_6dICFS1M_QZceepdUix4GfcdgySacFgSOjq2uvLdVUeP9fRxu7k84d368idixQjWn7zSSyA5tA"
+TOKEN = "BQBfq0RuDqx3dMnr4Ve_khvvk12eTN5tEbSiWA00_Jqy3PXY226NC-JQcW3WmQIyghtiU8PLox_TfMWEGychnqruGURlqB5y1-Ky_i-ERhVgdGGcPRvW_O95ukz88NalMaG2BSd309DvsVnlEIsildcs3UoUylfgSC9JUjvlU2dl6RSz09zg"
 
 
 def run_spotify_etl():
