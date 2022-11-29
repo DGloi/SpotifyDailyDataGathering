@@ -1,5 +1,4 @@
 import requests
-import sys
 
 refresh_token = " paste your refresh token here "
 base_64 = " paste here base64 spotify ClientID : Client secret"
