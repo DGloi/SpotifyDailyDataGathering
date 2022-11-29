@@ -3,7 +3,7 @@
 This ETL project of mine allows to get all your recently played music and feed a database every few hours everyday with your listening history. I personnaly host this application on my local machine; with all the right credentials that it implies. 
 
 
-This project is using the [Spotify API](https://developer.spotify.com/documentation/web-api/reference/#/) and connect to the API through Authorization Code Flow mode. Which means once set up properly, Apache Airflow will be able to run automatically without human interaction due to token expiration. 
+This project is using the [Spotify API](https://developer.spotify.com/documentation/web-api/reference/#/) and connect to the API through Authorization Code Flow mode. Which means once set up properly, Apache Airflow will be able to run automatically without any token expiration issues. 
 
 
 ## Technologies 
@@ -15,11 +15,28 @@ For this project, I have been using Python 3.6 and the following libraries :
 * [sqlalchemy](https://pypi.org/project/SQLAlchemy/)
 * [airflow](https://airflow.apache.org/docs/apache-airflow/2.1.4/installation/installing-from-pypi.html)
 
-Aside from python , I personnaly use [DBeaver](https://dbeaver.io/), a free and open source database management program to run SQL queries on the created database .
+Aside from python , I personnaly use [DBeaver](https://dbeaver.io/), a free and open source database management program to run SQL queries on the created database afterwards.
 
 All requirements for setting up a local environnement are to be found and run under requirements.txt
 
 
 ##  How can I set up this workflow on my machine ? 
 
-The first thing you will need 
+The first thing you will need is to have a Spotify account. Once this is done, you need to connect to it [here](https://developer.spotify.com/dashboard/login) and register your local instance of this application.
+
+<img width="205" alt="Screenshot 2022-11-29 at 19 11 28" src="https://user-images.githubusercontent.com/93589158/204612667-eadc845f-0c52-435b-abcc-badd6937bc37.png">
+
+This should provide a Client Id and a Client Secret that we will need get tokens to have acces to the API.
+While registering the application on spotify api website, it is important to specify a website uri in order to 
+
+
+---
+---
+
+## Contributors
+
+Dorian Gloinec
+
+Email: dorian.gloinec@protonmail.com
+
+LinkedIn: https://www.linkedin.com/in/dorian-gloinec/
