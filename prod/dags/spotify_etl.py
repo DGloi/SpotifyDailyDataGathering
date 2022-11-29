@@ -1,6 +1,5 @@
 #Importing needed libraries
 import sqlalchemy
-from sqlalchemy.orm import sessionmaker
 import requests
 import json
 from datetime import datetime
@@ -8,13 +7,13 @@ import datetime
 import sqlite3
 import pandas as pd
 
+# importing local class and functions
 from utils.check_valid_data import check_import
-from utils.spotify_token_update import spotify_token
+from utils.spotify_token_update import Refresh
 
-DATA_LOCATION = "sqlite:////Users/doriangloinec/Documents/GitHub/SpotifyDailyDataGathering/prod/data/what_do_i_listen_to.sqlite"
-USER_ID = "1154451207"
-TOKEN = "BQBfq0RuDqx3dMnr4Ve_khvvk12eTN5tEbSiWA00_Jqy3PXY226NC-JQcW3WmQIyghtiU8PLox_TfMWEGychnqruGURlqB5y1-Ky_i-ERhVgdGGcPRvW_O95ukz88NalMaG2BSd309DvsVnlEIsildcs3UoUylfgSC9JUjvlU2dl6RSz09zg"
-
+DATA_LOCATION = "sqlite:////LOCALPATH/database.sqlite"
+USER_ID = "Put you Spotify id here"
+TOKEN = Refresh.refresh_token()
 
 def run_spotify_etl():
 
@@ -33,11 +32,9 @@ def run_spotify_etl():
     r = requests.get(
         "https://api.spotify.com/v1/me/player/recently-played?after={time}".format(
             time=unix_yesterday),headers=headers)
-    
+
+ 
     data = r.json()
-    #f = open('/Users/doriangloinec/Documents/GitHub/SpotifyDailyDataGathering/src/data.json')
-    #with open("data.json", 'w') as f:
-        #json.dump(data, f)
 
     song_names = [] 
     artist_names = []
