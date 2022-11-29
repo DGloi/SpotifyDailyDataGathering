@@ -15,7 +15,7 @@ For this project, I have been using Python 3.6 and the following libraries :
 * [sqlalchemy](https://pypi.org/project/SQLAlchemy/)
 * [airflow](https://airflow.apache.org/docs/apache-airflow/2.1.4/installation/installing-from-pypi.html)
 
-Aside from python , I personnaly use [DBeaver](https://dbeaver.io/), a free and open source database management program to run SQL queries on the created database afterwards.
+Aside from python , I personnaly use [DBeaver](https://dbeaver.io/), a free and open source database management program to run SQL queries on the created database .
 
 All requirements for setting up a local environnement are to be found and run under requirements.txt
 
