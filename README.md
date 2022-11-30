@@ -42,9 +42,18 @@ Once you have the following :
  
  ### 2. Setting up python files to your local machine with your credentials
  
- Because credential as sensible information, its better to set up this application on your local machine or, if you feel like, in your docker account. 
+ Because credential as sensible information, its better to set up this application on your local machine or, if you feel like, in your docker account although it will require some adaptation on your end. 
  
- 
+A few files need to be fed with you credentials.
+
+* 1. In prod/dags/utils/spotify_token_update.py, fill the variable refresh_token with the refresh token you get from spotify api callback url.
+You also need to fill the variable base_64 with a base64 conversion of the following (your_client_id:your_client_secret)
+
+* 2. In prod/dags/spotify_etl.py, in the variable data_location you would have to put a local path from your machine but keep the formating. 
+
+
+### 3. Setting up Apache Airflow.  
+
 
 
 
