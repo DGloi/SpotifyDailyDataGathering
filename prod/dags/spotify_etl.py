@@ -11,16 +11,15 @@ import pandas as pd
 from utils.check_valid_data import check_import
 from utils.spotify_token_update import Refresh
 
-DATA_LOCATION = "sqlite:////LOCALPATH/database.sqlite"
-USER_ID = "Put you Spotify id here"
-TOKEN = Refresh.refresh_token()
+data_location = "sqlite:////LOCALPATH/database.sqlite"
+r_token = Refresh.refresh_token()
 
 def run_spotify_etl():
 
     headers = {
         "Accept":"application/json",
         "Content-type":"application/json",
-        "Authorization":"Bearer {token}".format(token=TOKEN)
+        "Authorization":"Bearer {token}".format(token = r_token)
     }
 
     today = datetime.datetime.now()
@@ -72,7 +71,7 @@ def run_spotify_etl():
         print("Data from spotify passed the quality check, loading to database..")
     
     #Load
-    engine = sqlalchemy.create_engine(DATA_LOCATION)
+    engine = sqlalchemy.create_engine(data_location)
     connection = sqlite3.connect("what_do_i_listen_to.sqlite")
     cursor = connection.cursor()
 
