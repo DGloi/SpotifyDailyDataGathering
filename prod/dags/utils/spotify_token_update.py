@@ -1,10 +1,10 @@
 import requests
 
 refresh_token = " paste your refresh token here "
-base_64 = " paste here base64 spotify ClientID : Client secret"
+base_64 = " paste here base64(Client_ID:Client_secret) "
 
 class Refresh:
-    def refresh_token(self):
+    def refresh_token():
 
         query = "https://accounts.spotify.com/api/token"
 
@@ -14,5 +14,5 @@ class Refresh:
                                  headers={"Authorization": "Basic " + base_64})
 
         response_json = response.json()
-        print(response_json)
-
+        t = response_json.get("access_token")
+        return t
