@@ -7,9 +7,10 @@ This project is using the [Spotify API](https://developer.spotify.com/documentat
 
 The database ultimately would contain the following information (see sample) : 
 
-<p align="center">
-<img width="1191" alt="Screenshot 2022-12-01 at 13 41 00" src="https://user-images.githubusercontent.com/93589158/205055688-fbaf36d8-9d8d-446a-90c1-80b7fb34930e.png">
-<p>
+| song_name | album     | released_date | artist    | played_date           | day_played | hour_played |
+|-----------|-----------|---------------|-----------|-----------------------|------------|-------------|
+| Zeig Dich | Rammstein | 2019-05-17    | Rammstein | 2022-11-30T16:34:152Z | 2022-11-30 | 16:34       |
+
  
 With the played_at column being an unique value as its impossible to play two songs qt the same time. 
  
