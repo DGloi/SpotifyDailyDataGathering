@@ -12,7 +12,7 @@ The database ultimately would contain the following information (see sample) :
 | Zeig Dich | Rammstein | 2019-05-17    | Rammstein | 2022-11-30T16:34:152Z | 2022-11-30 | 16:34       |
 
  
-With the played_at column being an unique value as its impossible to play two songs qt the same time. 
+With the played_at column being an unique value as its impossible to play two songs at the same time. 
  
 ## Technologies
 
