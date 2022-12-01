@@ -47,10 +47,12 @@ Once you have the following :
  
 A few files need to be fed with you credentials.
 
-i. In **prod/dags/utils/spotify_token_update.py**, fill the variable refresh_token with the refresh token you get from spotify api callback url.
+* **prod/dags/utils/spotify_token_update.py** : 
+Fill the variable refresh_token with the refresh token you get from spotify api callback url.
 You also need to fill the variable base_64 with a base64 conversion of the following (your_client_id:your_client_secret)
 
-ii. In **prod/dags/spotify_etl.py**, in the variable data_location you would have to put a local path from your machine but keep the formating. 
+* **prod/dags/spotify_etl.py** 
+The variable data_location need you local path for your sql database location. 
 
 
  ### <ins>3. Setting up Apache Airflow.  <ins>
@@ -77,8 +79,16 @@ That way, airflow will be able to locate the workflow we prepared to get our tra
  ```
  localhost:8080
  ```
+Using your credentials , you will be able to consult if you program worked you can see all the logs and relative informations. 
 
----
+<p align="center">
+<img width="1417" alt="Screenshot 2022-12-01 at 12 48 33" src="https://user-images.githubusercontent.com/93589158/205047273-b07a5c23-5d83-4e56-83b3-f0f62a4539d1.png">
+<p>
+
+<p align="center">
+<img width="1416" alt="Screenshot 2022-12-01 at 12 49 17" src="https://user-images.githubusercontent.com/93589158/205047290-7a9f891c-877c-475d-9684-a53cae0852a3.png">
+<p>
+
 
 ## <ins> Contributors <ins>
 
