@@ -5,7 +5,14 @@ This ETL project of mine allows to get all your recently played music and feed a
 
 This project is using the [Spotify API](https://developer.spotify.com/documentation/web-api/reference/#/) and connect to the API through Authorization Code Flow mode. Which means once set up properly, Apache Airflow will be able to run automatically without any token expiration issues. 
 
+The database ultimately would contain the following information (see sample) : 
 
+<p align="center">
+<img width="1191" alt="Screenshot 2022-12-01 at 13 41 00" src="https://user-images.githubusercontent.com/93589158/205055688-fbaf36d8-9d8d-446a-90c1-80b7fb34930e.png">
+<p>
+ 
+With the played_at column being an unique value as its impossible to play two songs qt the same time. 
+ 
 ## Technologies
 
 For this project, I have been using Python 3.6 and the following libraries :
